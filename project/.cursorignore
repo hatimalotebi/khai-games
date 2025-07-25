@@ -1,0 +1,70 @@
+# Build and distribution files
+dist/
+build/
+node_modules/
+
+# Development files
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git files
+.git/
+.gitignore
+
+# Package files
+package-lock.json
+yarn.lock
+
+# TypeScript declaration files
+*.d.ts
+
+# Test files
+__tests__/
+*.test.*
+*.spec.*
+
+# Documentation files (keep analysis files)
+README.md
+*.md
+!LANDING_PAGE_ANALYSIS.md
+!USER_FLOW_DIAGRAM.md
+!CONTENT_CONFIG.md
+!ANIMATION_CONFIG.md
+!COLOR_CONFIG.md
+!ICON_CONFIG.md
+
+# Configuration files (keep essential ones)
+eslint.config.js
+postcss.config.js
+tsconfig*.json
+vite.config.ts
+tailwind.config.js
+
+# Assets that don't need frequent updates
+src/assets/
+public/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/ 
