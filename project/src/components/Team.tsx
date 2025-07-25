@@ -23,20 +23,12 @@ const Team: React.FC = () => {
 
   const teamMembers = [
     {
-      name: "Ahmed Al-Rashid",
-      photo: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&dpr=1"
+      name: "Sadeem",
+      photo: "src/assets/teams/IMG_1468 (1).png"
     },
     {
-      name: "Fatima Al-Zahrani",
-      photo: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&dpr=1"
-    },
-    {
-      name: "Omar Al-Mutairi",
-      photo: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&dpr=1"
-    },
-    {
-      name: "Noura Al-Shehri",
-      photo: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&dpr=1"
+      name: "Modhi AlShuraim",
+      photo: "src/assets/teams/Untitled_Artwork (1).png"
     }
   ];
 
@@ -60,28 +52,22 @@ const Team: React.FC = () => {
             MEET THE TEAM
           </h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
               <div key={index} className="group text-center">
-                {/* Modern Avatar */}
-                <div className="relative w-48 h-48 mx-auto mb-6">
-                  {/* Gradient Frame */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-300 to-white rounded-full p-2">
-                    <div className="w-full h-full rounded-full overflow-hidden border-2 border-white">
-                      <img 
-                        src={member.photo} 
-                        alt={member.name}
-                        className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                  </div>
-                  
-                  {/* Hover Glow */}
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/30 to-gray-300/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                {/* Clean Image Only */}
+                <div className="flex justify-center mb-8">
+                  <img 
+                    src={member.photo} 
+                    alt={member.name}
+                    className="w-64 h-64 object-contain transition-all duration-500 group-hover:scale-105"
+                  />
                 </div>
                 
                 {/* Name */}
-                <h3 className="text-2xl font-bold text-white">{member.name}</h3>
+                <h3 className="text-2xl font-semibold text-white tracking-wide">
+                  {member.name}
+                </h3>
               </div>
             ))}
           </div>
