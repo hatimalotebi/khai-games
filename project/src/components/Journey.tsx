@@ -31,7 +31,7 @@ const Journey: React.FC = () => {
       logos: [
         { name: "Alfaisal University", url: "https://catalog.alfaisal.edu/themes/custom/alfaisal/images/logo.png" },
         { name: "Misk Foundation", url: "src/assets/imgs/misk.png" },
-        { name: "Digital Games Association", url: "src/assets/imgs/game-associated.png" }
+        { name: "CODE", url: "https://waki.sa/wp-content/uploads/2024/06/code-mcit-1.png" },
       ]
     },
     {
@@ -41,7 +41,7 @@ const Journey: React.FC = () => {
       color: "from-white to-gray-300",
       glowColor: "shadow-white/25",
       logos: [
-        { name: "CODE", url: "https://waki.sa/wp-content/uploads/2024/06/code-mcit-1.png" }
+        { name: "Digital Games Association", url: "src/assets/imgs/game-associated.png" }
       ]
     },
     {
@@ -68,12 +68,17 @@ const Journey: React.FC = () => {
 
   return (
     <section id="journey" ref={sectionRef} className="relative py-20 px-8 overflow-hidden">
-      {/* Gaming background image with blur effect */}
+      {/* Gaming background image with enhanced iPhone responsiveness */}
       <div className="absolute inset-0">
         <img 
           src="https://i.imgur.com/6cDCN0z.jpeg" 
           alt="Gaming Background"
           className="w-full h-full object-cover"
+          style={{
+            // iPhone specific adjustments
+            objectPosition: window.innerWidth <= 768 ? 'center' : 'center',
+            minHeight: window.innerWidth <= 768 ? '100vh' : 'auto'
+          }}
         />
         <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
       </div>
@@ -82,7 +87,7 @@ const Journey: React.FC = () => {
         <div className={`transform transition-all duration-1000 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          <h2 className="text-6xl font-bold text-center mb-20 tracking-wide drop-shadow-2xl bg-gradient-to-b from-orange-500 via-yellow-400 to-cyan-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-center mb-12 sm:mb-20 tracking-wide drop-shadow-2xl bg-gradient-to-b from-orange-500 via-yellow-400 to-cyan-400 bg-clip-text text-transparent">
             OUR JOURNEY
           </h2>
           
@@ -124,23 +129,23 @@ const Journey: React.FC = () => {
           {/* Mobile/Tablet Vertical Timeline */}
           <div className="lg:hidden space-y-8">
             {milestones.map((milestone, index) => (
-              <div key={index} className="flex items-start space-x-8">
+              <div key={index} className="flex items-start space-x-4 sm:space-x-8">
                 <div className={`relative flex-shrink-0`}>
                   <img 
                     src={milestone.logoSrc} 
                     alt={milestone.title}
-                    className="w-20 h-20 object-contain"
+                    className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
                   />
-                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-lg">
+                  <div className="absolute -top-2 -right-2 w-5 h-5 sm:w-6 sm:h-6 bg-white rounded-full flex items-center justify-center shadow-lg">
                     <span className="text-xs font-bold text-gray-900">{index + 1}</span>
                   </div>
                 </div>
-                <div className="p-8 flex-1">
-                  <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-lg">{milestone.title}</h3>
-                  <p className="text-lg text-gray-300 mb-6 leading-relaxed drop-shadow-lg">{milestone.description}</p>
-                  <div className="flex flex-wrap gap-4">
+                <div className="p-4 sm:p-8 flex-1">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 drop-shadow-lg">{milestone.title}</h3>
+                  <p className="text-sm sm:text-base md:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed drop-shadow-lg">{milestone.description}</p>
+                  <div className="flex flex-wrap gap-3 sm:gap-4">
                     {milestone.logos.map((logo, logoIndex) => (
-                      <div key={logoIndex} className="w-24 h-24 hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                      <div key={logoIndex} className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 hover:scale-105 transition-all duration-300 flex items-center justify-center">
                         <img 
                           src={logo.url} 
                           alt={logo.name}

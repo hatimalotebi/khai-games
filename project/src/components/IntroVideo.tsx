@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
 interface IntroVideoProps {
   onVideoEnd: () => void;
@@ -7,6 +7,8 @@ interface IntroVideoProps {
 
 const IntroVideo: React.FC<IntroVideoProps> = ({ onVideoEnd, gameAudio }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isVideoVisible, setIsVideoVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -23,26 +25,46 @@ const IntroVideo: React.FC<IntroVideoProps> = ({ onVideoEnd, gameAudio }) => {
         onVideoEnd();
       };
 
-      // Handle scroll to pause video
+      // Enhanced scroll handling for video pause/resume
       const handleScroll = () => {
-        if (video && !video.paused) {
-          video.pause();
-          // Resume game music when video is paused by scrolling
-          if (gameAudio) {
-            gameAudio.play().catch(console.error);
+        const currentScrollY = window.scrollY;
+        const videoElement = videoRef.current;
+        
+        if (videoElement) {
+          const videoRect = videoElement.getBoundingClientRect();
+          const isVideoInView = videoRect.top < window.innerHeight && videoRect.bottom > 0;
+          
+          // Pause video when scrolling down and video is not in view
+          if (currentScrollY > lastScrollY && !isVideoInView && !videoElement.paused) {
+            videoElement.pause();
+            // Resume game music when video is paused
+            if (gameAudio) {
+              gameAudio.play().catch(console.error);
+            }
+          }
+          
+          // Resume video when scrolling back up and video is in view
+          if (currentScrollY < lastScrollY && isVideoInView && videoElement.paused) {
+            videoElement.play().catch(console.error);
+            // Pause game music when video resumes
+            if (gameAudio) {
+              gameAudio.pause();
+            }
           }
         }
+        
+        setLastScrollY(currentScrollY);
       };
 
       video.addEventListener('ended', handleEnded);
-      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll, { passive: true });
       
       return () => {
         video.removeEventListener('ended', handleEnded);
         window.removeEventListener('scroll', handleScroll);
       };
     }
-  }, [onVideoEnd, gameAudio]);
+  }, [onVideoEnd, gameAudio, lastScrollY]);
 
   return (
     <section id="home" className="relative h-screen bg-black overflow-hidden">
@@ -51,6 +73,11 @@ const IntroVideo: React.FC<IntroVideoProps> = ({ onVideoEnd, gameAudio }) => {
         className="w-full h-full object-cover"
         controls={false}
         playsInline
+        webkit-playsinline="true"
+        x5-playsinline="true"
+        x5-video-player-type="h5"
+        x5-video-player-fullscreen="true"
+        muted
       >
         <source src="https://files.catbox.moe/hvqzxg.mp4" type="video/mp4" />
       </video>
