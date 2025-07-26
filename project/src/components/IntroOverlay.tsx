@@ -16,13 +16,6 @@ const IntroOverlay: React.FC<IntroOverlayProps> = ({ onStart, gameAudio }) => {
       gameAudio.volume = 0.3;
       gameAudio.play().catch(console.error);
     }
-
-    // Auto-start after 3 seconds
-    const timer = setTimeout(() => {
-      handleStart();
-    }, 3000);
-
-    return () => clearTimeout(timer);
   }, [gameAudio]);
 
   const handleStart = () => {
@@ -86,15 +79,17 @@ const IntroOverlay: React.FC<IntroOverlayProps> = ({ onStart, gameAudio }) => {
         </div>
       </div>
 
-      {/* Loading indicator instead of start button */}
+      {/* Start Button - Restored with enhanced positioning */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative z-20 text-center">
-          <div className="text-white text-2xl sm:text-3xl md:text-4xl font-bold italic tracking-wider mb-4">
-            <span className="drop-shadow-2xl">KHAI GAMES</span>
-          </div>
-          <div className="flex justify-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
-          </div>
+        <div className="relative z-20 ml-[-20%] sm:ml-[-25%] md:ml-[-30%]">
+          <button
+            onClick={handleStart}
+            className="relative group text-white text-4xl sm:text-5xl md:text-6xl font-bold italic tracking-wider hover:text-gray-300 transition-all duration-300 hover:scale-110 cursor-pointer"
+            style={{ fontFamily: 'serif' }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+            <span className="relative drop-shadow-2xl">Start</span>
+          </button>
         </div>
       </div>
     </div>
