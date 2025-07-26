@@ -1,6 +1,8 @@
 @@ .. @@
    const products = [
      {
+     }
+   ]
 -      title: "NABTU: The Forgotten Kingdom",
 +      title: "Forgotten Kingdom",
        subtitle: "Epic Arabian Adventure",

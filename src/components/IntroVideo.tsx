@@ -1,9 +1,11 @@
 @@ .. @@
  const IntroVideo: React.FC<IntroVideoProps> = ({ onVideoEnd, gameAudio }) => {
    const videoRef = useRef<HTMLVideoElement>(null);
+ }
  
 @@ .. @@
    return (
+   )
 -    <section id="home" className="relative h-screen bg-black overflow-hidden">
 +    <section id="home" className="relative h-screen bg-black overflow-hidden flex items-center justify-center">
        <video
