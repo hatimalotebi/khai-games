@@ -24,11 +24,11 @@ const Team: React.FC = () => {
   const teamMembers = [
     {
       name: "Sadeem",
-      photo: "src/assets/teams/IMG_1468 (1).png"
+      photo: "/assets/teams/sadeem.png"
     },
     {
       name: "Modhi AlShuraim",
-      photo: "src/assets/teams/Untitled_Artwork (1).png"
+      photo: "/assets/teams/modhi.png"
     }
   ];
 

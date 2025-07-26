@@ -25,29 +25,29 @@ const Journey: React.FC = () => {
     {
       title: "Bootcamp Enrollment",
       description: "Started our journey with intensive training",
-      logoSrc: "src/assets/imgs/ready.PNG",
+      logoSrc: "/assets/imgs/ready.png",
       color: "from-white to-gray-300",
       glowColor: "shadow-white/25",
       logos: [
         { name: "Alfaisal University", url: "https://catalog.alfaisal.edu/themes/custom/alfaisal/images/logo.png" },
-        { name: "Misk Foundation", url: "src/assets/imgs/misk.png" },
+        { name: "Misk Foundation", url: "/assets/imgs/misk.png" },
         { name: "CODE", url: "https://waki.sa/wp-content/uploads/2024/06/code-mcit-1.png" },
       ]
     },
     {
       title: "Saudi Game Champions",
       description: "Recognized as gaming champions",
-      logoSrc: "src/assets/imgs/jump.PNG",
+      logoSrc: "/assets/imgs/jump.png",
       color: "from-white to-gray-300",
       glowColor: "shadow-white/25",
       logos: [
-        { name: "Digital Games Association", url: "src/assets/imgs/game-associated.png" }
+        { name: "Digital Games Association", url: "/assets/imgs/game-associated.png" }
       ]
     },
     {
       title: "MVP Lab Acceptance",
       description: "Accepted into MVP development program",
-      logoSrc: "src/assets/imgs/fast.PNG",
+      logoSrc: "/assets/imgs/fast.png",
       color: "from-white to-gray-300",
       glowColor: "shadow-white/25",
       logos: [
@@ -57,7 +57,7 @@ const Journey: React.FC = () => {
     {
       title: "The Garage",
       description: "Joined innovation hub",
-      logoSrc: "src/assets/imgs/location.PNG",
+      logoSrc: "/assets/imgs/location.png",
       color: "from-white to-gray-300",
       glowColor: "shadow-white/25",
       logos: [
